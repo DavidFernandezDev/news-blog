@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import styles from './Home.module.css';
 import News from '../../components/News';
 import axios from 'axios';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 const API_PATH = 'http://newsapi.org/v2/top-headlines?country=us&apiKey=77fc7d5e7fe74f938feb2d1cb84aa141';
 const AUTHOR_API = 'https://randomuser.me/api/?results=100';
@@ -43,11 +44,14 @@ class Home extends PureComponent {
 
     return (
       <div className={styles.container}>
-        {news.length && authors.length && news.map((news, idx) => (
+        <Jumbotron className={styles.header}>
+          <h1>News Blog</h1>
+        </Jumbotron>
+        {(news.length && authors.length) !== 0 && news.map((news, idx) => (
           <News
             {...news}
             author={
-              this.state.authors[idx].name.first + ' ' + this.state.authors[idx].name.last 
+              this.state.authors[idx].name.first + ' ' + this.state.authors[idx].name.last
             }
           />
         ))}

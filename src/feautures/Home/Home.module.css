@@ -1,3 +1,13 @@
 .container {
   padding: 0 20px;
 }
+
+.header {
+  text-align: center;
+  background-color: #4267B2 !important;
+  color: white;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
